@@ -1,3 +1,5 @@
+require "prawn"
+
 def align(num)
   if num <= 9
     " #{num}"
@@ -29,3 +31,7 @@ bingo_card = <<-BINGO
 BINGO
 
 puts bingo_card
+
+Prawn::Document.generate("bingo.pdf") do
+  text bingo_card
+end
